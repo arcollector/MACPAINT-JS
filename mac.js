@@ -56,7 +56,7 @@ var decodeHeader = function( arrayBuffer ) {
 	var header = {};	
 	// there is a mac header ?
 	// if its first three bytes are zereos, then there is not mac header present
-	if( arrayBuffer.length >= 3 && arrayBuffer[0] === 0 && arrayBuffer[1] === 0 && arrayBuffer[2] === 0 ) {
+	if( arrayBuffer[0] === 0 && arrayBuffer[1] === 0 && arrayBuffer[2] === 0 ) {
 		console.log( 'File does not have a mac header!' );
 		header.present = false;
 	} else {
