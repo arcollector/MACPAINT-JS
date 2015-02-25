@@ -48,7 +48,7 @@ HEADER_PATTERN_SIZE = 8;
 
 STRING_MAX_LENGTH = 31;
 
-var headerStruct = new Uint8Array( [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80,78,84,71,77,80,78,84,1,0,0,0,0,0,0,0,128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,255,255,255,255,255,255,255,255,221,255,119,255,221,255,119,255,221,119,221,119,221,119,221,119,170,85,170,85,170,85,170,85,85,255,85,255,85,255,85,255,170,170,170,170,170,170,170,170,238,221,187,119,238,221,187,119,136,136,136,136,136,136,136,136,177,48,3,27,216,192,12,141,128,16,2,32,1,8,64,4,255,136,136,136,255,136,136,136,255,128,128,128,255,8,8,8,128,0,0,0,0,0,0,0,128,64,32,0,2,4,8,0,130,68,57,68,130,1,1,1,248,116,34,71,143,23,34,113,85,160,64,64,85,10,4,4,32,80,136,136,136,136,5,2,191,0,191,191,176,176,176,176,0,0,0,0,0,0,0,0,128,0,8,0,128,0,8,0,136,0,34,0,136,0,34,0,136,34,136,34,136,34,136,34,170,170,85,85,170,170,85,85,255,0,255,0,255,0,255,0,17,34,68,136,17,34,68,136,255,0,0,0,255,0,0,0,1,2,4,8,16,32,64,128,170,0,128,0,136,0,128,0,255,128,128,128,128,128,128,128,8,28,34,193,128,1,2,4,136,20,34,65,136,0,170,0,64,160,0,0,4,10,0,0,3,132,72,48,12,2,1,1,128,128,65,62,8,8,20,227,16,32,84,170,255,2,4,8,119,137,143,143,119,152,248,248,0,8,20,42,85,42,20,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] );
+var headerArray = new Uint8Array( [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80,78,84,71,77,80,78,84,1,0,0,0,0,0,0,0,128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,255,255,255,255,255,255,255,255,221,255,119,255,221,255,119,255,221,119,221,119,221,119,221,119,170,85,170,85,170,85,170,85,85,255,85,255,85,255,85,255,170,170,170,170,170,170,170,170,238,221,187,119,238,221,187,119,136,136,136,136,136,136,136,136,177,48,3,27,216,192,12,141,128,16,2,32,1,8,64,4,255,136,136,136,255,136,136,136,255,128,128,128,255,8,8,8,128,0,0,0,0,0,0,0,128,64,32,0,2,4,8,0,130,68,57,68,130,1,1,1,248,116,34,71,143,23,34,113,85,160,64,64,85,10,4,4,20,34,73,148,41,146,68,40,191,0,191,191,176,176,176,176,0,0,0,0,0,0,0,0,128,0,8,0,128,0,8,0,136,0,34,0,136,0,34,0,136,34,136,34,136,34,136,34,170,0,170,0,170,0,170,0,255,0,255,0,255,0,255,0,17,34,68,136,17,34,68,136,255,0,0,0,255,0,0,0,1,2,4,8,16,32,64,128,170,0,128,0,136,0,128,0,255,128,128,128,128,128,128,128,8,28,34,193,128,1,2,4,136,20,34,65,136,0,170,0,64,160,0,0,4,10,0,0,3,132,72,48,12,2,1,1,128,128,65,62,8,8,20,227,16,32,84,170,255,2,4,8,119,137,143,143,119,152,248,248,0,8,20,42,85,42,20,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] );
 
 var decodeHeader = function( arrayBuffer ) {
 	//console.log( arrayBuffer, arrayBuffer.length );
@@ -94,58 +94,15 @@ var decodeHeader = function( arrayBuffer ) {
 	
 	// at btye 132 the patterns are store, a total of 38 ones, 8 bytes long each one
 	header.patterns = [];
-	for( var i = 0, c = HEADER_PATTERN_START; i < HEADER_PATTERN_COUNT; i++, c++ ) {
+	for( var i = 0, c = HEADER_PATTERN_START; i < HEADER_PATTERN_COUNT; i++, c += 8 ) {
 		var pattern = new Uint8ClampedArray( HEADER_PATTERN_SIZE );
-		for( var j = 0, k = 0; j < HEADER_PATTERN_SIZE; j++ ) {
-			var patternByte = (~arrayBuffer[c*i+j]) & 0xff;
-			pattern[k++] = patternByte;
+		for( var j = 0, k = 0; j < HEADER_PATTERN_SIZE; j++, k++ ) {
+			var patternByte = (~arrayBuffer[c+j]) & 0xff;
+			pattern[k] = patternByte;
 		}
 		header.patterns.push( pattern );
 	}
-	
-	/*var headerCopy = arrayBuffer.subarray( 0, 640 );
-	console.log( headerCopy );
-	
-	headerCopy[HEADER_FILENAME_LENGTH] = 0;
-	for( var i = HEADER_FILENAME_START; i < HEADER_FILE_TYPE_START-1; i++ ) {
-		headerCopy[i] = 0;
-	}
-	headerCopy[HEADER_FILE_TYPE_START] = 80; // P
-	headerCopy[HEADER_FILE_TYPE_START+1] = 78; // N
-	headerCopy[HEADER_FILE_TYPE_START+2] = 84; // T
-	headerCopy[HEADER_FILE_TYPE_START+3] = 71; // G
-	
-	headerCopy[HEADER_CREATOR] = 77; // M
-	headerCopy[HEADER_CREATOR+1] = 80; // P
-	headerCopy[HEADER_CREATOR+2] = 78; // N
-	headerCopy[HEADER_CREATOR+3] = 84; // T
-	
-	headerCopy[HEADER_DATA_FORK] = 0;
-	headerCopy[HEADER_DATA_FORK+1] = 0;
-	headerCopy[HEADER_DATA_FORK+2] = 0;
-	headerCopy[HEADER_DATA_FORK+3] = 0;
-	
-	headerCopy[HEADER_RESOURCE_FORK] = 0;
-	headerCopy[HEADER_RESOURCE_FORK+1] = 0;
-	headerCopy[HEADER_RESOURCE_FORK+2] = 0;
-	headerCopy[HEADER_RESOURCE_FORK+3] = 0;
-	
-	headerCopy[HEADER_CREATION_DATE] = 0;
-	headerCopy[HEADER_CREATION_DATE+1] = 0;
-	headerCopy[HEADER_CREATION_DATE+2] = 0;
-	headerCopy[HEADER_CREATION_DATE+3] = 0;
-	
-	headerCopy[HEADER_MODIFICATION_DATE] = 0;
-	headerCopy[HEADER_MODIFICATION_DATE+1] = 0;
-	headerCopy[HEADER_MODIFICATION_DATE+2] = 0;
-	headerCopy[HEADER_MODIFICATION_DATE+3] = 0;
-	
-	var str = [];
-	for( var k = 0; k < 640; k++ ) {
-		str[k] = headerCopy[k];
-	}
-	console.log( '[' + str + ']' );*/
-	
+
 	return header;
 };
 
@@ -313,53 +270,11 @@ var encodeImage = function( rawBitmap ) {
 	
 	var compressedBitmap = new Uint8Array( 720*72 );
 	var compressedBitmapIndex = 0;
-	
-	/*var buffer = [];
-	for( var line = 0; line < 720; line++ ) {
-		for( var byteCount = 0; byteCount < 72; byteCount++ ) {
-			buffer[byteCount] = rawBitmap[rawBitmapIndex++];
-		}
-		console.log( 'line', line, buffer );
-		var sameBytes = 0;
-		var byteToRepeat;
-		var string = [];
-		for( var byteCount = 0; byteCount < 71; byteCount++ ) {
-			if( buffer[byteCount] === buffer[byteCount+1] ) {
-				sameBytes++;
-				byteToRepeat = buffer[byteCount];
-			} else {
-				if( sameBytes >= 2 ) {
-					if( string.length ) {
-						console.log( 'string', string, 'with length', string.length, 'to be copied' );
-						string = [];
-					}
-					console.log( 'repeat', sameBytes+1, 'times byte', byteToRepeat );
-					sameBytes = 0;
-				} else {
-					if( sameBytes > 0 ) {
-						string.push( buffer[byteCount] );
-						sameBytes = 0;
-					}
-					string.push( buffer[byteCount] );
-				}
-			}
-		}
-		if( string.length ) {
-			console.log( 'string', string, 'with length', string.length, 'to be copied' );
-		}
-		if( sameBytes ) {
-			console.log( 'repeat', sameBytes+1, 'times byte', byteToRepeat );
-		}		
-		//if( line === 20 ) { break; }
-	}
-	return compressedBitmap;*/
-	
-	rawBitmapIndex = 0;
+
 	var buffer = new Uint8Array( 72 );
 	var bufferIndex = 0;
 	
 	for( var line = 0; line < 720; line++ ) {
-		//console.log( 'line', line );
 		var offset = 0;
 		bufferIndex = 0;
 		while( offset < 72 ) {
@@ -374,12 +289,10 @@ var encodeImage = function( rawBitmap ) {
 					for( var k = 0; k < bufferIndex; k++ ) {
 						compressedBitmap[compressedBitmapIndex++] = ~buffer[k];
 					}
-					//console.log( '\tstring', string, 'length', string.length );
 					bufferIndex = 0;
 				}
 				compressedBitmap[compressedBitmapIndex++] = ~sameBytes+1;
 				compressedBitmap[compressedBitmapIndex++] = ~rawBitmap[rawBitmapIndex+offset];
-				//console.log( '\trepeat', sameBytes+1, 'byte', buffer[offset] );
 				offset++;
 			} else {
 				if( sameBytes === 1 ) {
@@ -394,10 +307,8 @@ var encodeImage = function( rawBitmap ) {
 			for( var k = 0; k < bufferIndex; k++ ) {
 				compressedBitmap[compressedBitmapIndex++] = ~buffer[k];
 			}
-			//console.log( '\tstring', string, 'length', string.length );
 		}
 		rawBitmapIndex += 72;
-		//if( line === 500 ) { break; }
 	}
 
 	console.log( 'Image has been compressed to a length of', compressedBitmapIndex, 'bytes' );
@@ -406,7 +317,7 @@ var encodeImage = function( rawBitmap ) {
 };
 
 var createHeader = function( options ) {
-	var header = headerStruct.subarray( 0 );
+	var header = headerArray.subarray( 0 );
 	
 	filename = options.filename.toString();
 	header[HEADER_FILENAME_LENGTH] = filename.length > STRING_MAX_LENGTH ? STRING_MAX_LENGTH : filename.length;
@@ -468,7 +379,7 @@ setCanvas();
 	displayPicture( imageData );
 } );*/
 
-loadFile( '1424873921438.MAC', function( arrayBuffer ) {
+loadFile( 'CHRISTIE.MAC', function( arrayBuffer ) {
 	var header = decodeHeader( arrayBuffer );
 	header.present && displayPatterns( header.patterns );
 	var bitmap = decodeImage( arrayBuffer, header.present ? HEADER_SIZE : HEADER_SIZE_NONHEADER );
@@ -477,11 +388,6 @@ loadFile( '1424873921438.MAC', function( arrayBuffer ) {
 	var compress = encodeImage( bitmap );
 	var filename = new Date().valueOf();
 	var header = createHeader( { filename: filename } );
-	//console.log( header );
 	var file = buildFile( header, compress );
-	downloadFile( file, filename );
-	//var bitmap2 = decodeImage2( compress, true );
-	//displayPicture2( bitmap2 );
-
+	//downloadFile( file, filename );
 } );
-
