@@ -29,24 +29,24 @@ var getString = function( arrayBuffer, index, count ) {
 /////////////////////////////
 /////////////////////////////
 
-MAC_HEADER_SIZE = 128;
+const MAC_HEADER_SIZE = 128;
 
-HEADER_SIZE = 640;
-HEADER_SIZE_NONHEADER = 512;
-HEADER_FILENAME_LENGTH = 1;
-HEADER_FILENAME_START = 2;
-HEADER_FILE_TYPE_START = 65;
-HEADER_FILE_TYPE_STRING = 'PNTG'
-HEADER_CREATOR = 69;
-HEADER_DATA_FORK = 83;
-HEADER_RESOURCE_FORK = 87;
-HEADER_CREATION_DATE = 91;
-HEADER_MODIFICATION_DATE = 95;
-HEADER_PATTERN_START = 132;
-HEADER_PATTERN_COUNT = 38;
-HEADER_PATTERN_SIZE = 8;
+const HEADER_SIZE = 640;
+const HEADER_SIZE_NONHEADER = 512;
+const HEADER_FILENAME_LENGTH = 1;
+const HEADER_FILENAME_START = 2;
+const HEADER_FILE_TYPE_START = 65;
+const HEADER_FILE_TYPE_STRING = 'PNTG'
+const HEADER_CREATOR = 69;
+const HEADER_DATA_FORK = 83;
+const HEADER_RESOURCE_FORK = 87;
+const HEADER_CREATION_DATE = 91;
+const HEADER_MODIFICATION_DATE = 95;
+const HEADER_PATTERN_START = 132;
+const HEADER_PATTERN_COUNT = 38;
+const HEADER_PATTERN_SIZE = 8;
 
-STRING_MAX_LENGTH = 31;
+const STRING_MAX_LENGTH = 31;
 
 var headerArray = new Uint8Array( [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80,78,84,71,77,80,78,84,1,0,0,0,0,0,0,0,128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,255,255,255,255,255,255,255,255,221,255,119,255,221,255,119,255,221,119,221,119,221,119,221,119,170,85,170,85,170,85,170,85,85,255,85,255,85,255,85,255,170,170,170,170,170,170,170,170,238,221,187,119,238,221,187,119,136,136,136,136,136,136,136,136,177,48,3,27,216,192,12,141,128,16,2,32,1,8,64,4,255,136,136,136,255,136,136,136,255,128,128,128,255,8,8,8,128,0,0,0,0,0,0,0,128,64,32,0,2,4,8,0,130,68,57,68,130,1,1,1,248,116,34,71,143,23,34,113,85,160,64,64,85,10,4,4,20,34,73,148,41,146,68,40,191,0,191,191,176,176,176,176,0,0,0,0,0,0,0,0,128,0,8,0,128,0,8,0,136,0,34,0,136,0,34,0,136,34,136,34,136,34,136,34,170,0,170,0,170,0,170,0,255,0,255,0,255,0,255,0,17,34,68,136,17,34,68,136,255,0,0,0,255,0,0,0,1,2,4,8,16,32,64,128,170,0,128,0,136,0,128,0,255,128,128,128,128,128,128,128,8,28,34,193,128,1,2,4,136,20,34,65,136,0,170,0,64,160,0,0,4,10,0,0,3,132,72,48,12,2,1,1,128,128,65,62,8,8,20,227,16,32,84,170,255,2,4,8,119,137,143,143,119,152,248,248,0,8,20,42,85,42,20,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] );
 
@@ -104,27 +104,6 @@ var decodeHeader = function( arrayBuffer ) {
 	}
 
 	return header;
-};
-
-var loadMac = function( macFileURL, callback ) {
-	var xhr = new XMLHttpRequest();
-	xhr.open( 'GET', macFileURL );
-	xhr.responseType = 'arraybuffer';
-	xhr.onload = function( e ) {
-		var data = this.response;
-		if( data ) {
-			var byteArray = new Uint8Array( data );
-			var headerData = decodeHeader( byteArray );
-			var imageData = decodeImage( byteArray );
-			callback( headerData, imageData );
-		} else {
-			console.error( 'Corruped response data of file', macFileURL );
-		}
-	};
-	xhr.onerror = function( e ) {
-		console.error( 'Fail to load file', macFileURL );
-	};
-	xhr.send();
 };
 
 var setCanvas = function() {
@@ -189,7 +168,7 @@ var loadFile = function( macFileURL, callback ) {
 		if( data ) {
 			callback(  new Uint8Array( data ) );
 		} else {
-			console.error( 'Corruped response data of file', macFileURL );
+			console.error( 'Corrupted response data of file', macFileURL );
 		}
 	};
 	xhr.onerror = function( e ) {
@@ -372,14 +351,12 @@ var downloadFile = function( arrayBuffer, filename ) {
 /////////////////////////////
 
 setCanvas();
-/*loadMac( 'MILO.PIC', function( headerData, imageData ) {
-//loadMac( 'FEMHEAD1.MAC', function( headerData, imageData ) {
-//loadMac( 'CHRISTIE.MAC', function( headerData, imageData ) {
-	displayPatterns( headerData.patterns );
-	displayPicture( imageData );
-} );*/
 
-loadFile( 'CHRISTIE.MAC', function( arrayBuffer ) {
+var macFileURL = 'MILO.PIC';
+var macFileURL = 'FEMHEAD1.MAC';
+var macFileURL = 'CHRISTIE.MAC';
+
+loadFile( macFileURL, function( arrayBuffer ) {
 	var header = decodeHeader( arrayBuffer );
 	header.present && displayPatterns( header.patterns );
 	var bitmap = decodeImage( arrayBuffer, header.present ? HEADER_SIZE : HEADER_SIZE_NONHEADER );
